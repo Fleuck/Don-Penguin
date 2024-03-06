@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <title>Don Penguin</title>
+</head>
+<body>
+    <header>
+        <div class="org">
+            <img class="logo" src="../midia/penguin.jpg" alt="logo">
+            <nav>
+                <ul class="barra">
+                    <a class="menu" href=""><li>Animacao</li></a>
+                    <a class="menu" href=""><li>Acao</li></a>
+                    <a class="menu" href=""><li>Comedia</li></a>
+                    <a class="menu" href=""><li>Classicos</li></a>
+                    <a class="menu" href=""><li>Romance</li></a>
+                    <a class="menu" href=""><li>Terror/Suspense</li></a>
+                    <div class="big">
+                        <a href=""><i id="save" class="fa-solid fa-bookmark"></i></a>
+                        <a href=""><i id="search" class="fa-solid fa-magnifying-glass"></i></a> 
+                    </div>
+                </ul>
+            </nav>
+            <div class = "toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            
+        </div>
+        <div class="dropdown_menu">
+            <a class="menuzinho"  href="#"><li>Animacao</li></a>
+            <a class="menuzinho"  href="#"><li>Acao</li></a>
+            <a class="menuzinho"  href="#"><li>Comedia</li></a>
+            <a class="menuzinho" href=""><li>Classicos</li></a>
+            <a class="menuzinho" href=""><li>Romance</li></a>
+            <a class="menuzinho" href=""><li>Terror/Suspense</li></a>
+            <a class="menuzinho" href=""><li>Lista</li></a>
+            <div class="mini">
+                <a href=""><i id="save_mini" class="fa-solid fa-bookmark"></i></a>
+                <a href=""><i id="search_mini" class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
+        </div>
+    </header> 
+    <script src="./minibar.js"></script>
+
+    <div class="container" id="movie-container"></div>
+    <script src="script.js"></script>
+    
+</body>
+</html>
