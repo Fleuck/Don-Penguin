@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #333 !important;
+}    
+
+.custom-form .form-control {
+    border-color: rgb(0, 0, 0);
+}
+
+.custom-form{
+    padding-top: 2rem;
+    background: transparent;    
+    border: 2px solid rgba(0, 0, 0, .5);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    background-color: #333;
+    margin-left: 33%;
+    margin-right: 33%;
+    border-radius: 30px;
+}
+
+.titulo {
+    font-size: 52px;
+    color: antiquewhite;
+}
+
+.LabelDeslocamentoEsquerda {
+    display: flex;
+    align-items: start;
+    padding-left: 11%;
+    color: rgb(255, 245, 232);
+}
