@@ -8,7 +8,7 @@ body{
     font-family: 'Playfair', serif;
     font-family: 'Poppins', sans-serif;
     margin: 0;
-    background-color: #3a3a3a;
+    background-color: #1c1c1c;
     padding: 0;
 }   
 
@@ -32,7 +32,6 @@ a{
 a:-webkit-any-link {
     color: #dbdbdb
 }
-
 
 .org{
     position: fixed;
@@ -106,7 +105,7 @@ a:-webkit-any-link {
 }
 
 .dropdown_menu.open{
-    height: 400px;
+    height: 450px;
 }
 
 .dropdown_menu li {
@@ -122,24 +121,25 @@ a:-webkit-any-link {
     font-size: 1.2rem;
 }
 
+.dropdown_menu li:hover {
+    color: #ffffff;
+}
+
 .mini{
     font-size: 1.5rem;
     display: flex;
     margin-top: 5%;
     justify-content: space-around;
+    color: #dbdbdb;
+}
+
+.mini i:hover{
+    color: white;
 }
 
 li{
     margin-right: 3rem;
     list-style: none;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #111;
-    color: #fff;
 }
 
 .container {
@@ -164,6 +164,62 @@ body {
 .movie img {
     width: 100%;
     height: auto;
+}
+
+.searchBar{
+    position: fixed;
+    right: 0.0rem;
+    top: 30px;
+    height: 10px;
+    width: 200px;
+    background-color: #000000;
+    overflow: hidden;
+    z-index: 100;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 10px;
+}
+
+.searchBar input{
+    background-color: #1c1c1c;
+    color: white;
+    padding: 4%;
+    border-radius: 10px;
+}
+
+.searchBar form{
+    margin: 25px;
+}
+
+#x{
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: inline-block;
+    flex-grow: 1; 
+    transition: all 0.3s ease 0s;
+    display: none;
+}
+
+#x:hover{
+    font-size: 1.7rem;
+}
+
+.searchMenu{
+    display: none;
+    align-items: center;
+    padding: 5%;
+}
+
+.searchMenu .input{
+    padding: 2%;
+}
+
+#xMini{
+    font-size: 1.5rem;
+    padding-left: 6%;
+    cursor: pointer;
+    color: #ffffff;
+
 }
 
 @media screen and (max-width: 1250px) {
@@ -195,12 +251,16 @@ body {
     .container {
         padding: 50px;
     }
+
+    .searchBar{
+        display: none;
+    }
+    
 }   
 
 @media screen and (max-width: 600px) {
-
     .movie {
-        width: 50px;
+        width: 50px;    
         margin: 10px;
     }
     

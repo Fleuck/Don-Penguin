@@ -3,6 +3,15 @@ const movies = [
     {image: "../midia/images.jpeg" },
     {image: "../midia/images.jpeg" },
     {image: "../midia/images.jpeg" },
+    {image: "../midia/images.jpeg" },
+    {image: "../midia/images.jpeg" },
+    {image: "../midia/images.jpeg" },
+    {image: "../midia/images.jpeg" },
+    {image: "../midia/images.jpeg" },
+    {image: "../midia/images.jpeg" },
+    {image: "../midia/images.jpeg" },
+    {image: "../midia/images.jpeg" },
+    
     
 ];
 
