@@ -1,7 +1,6 @@
 #paragrafo1 {
     text-align: justify; 
     color: aliceblue; 
-    margin-top: 7cm;
 }
 
 #paragrafo1 {
@@ -13,12 +12,8 @@
     opacity: 1;
 }
 
-#poster{
-    height: 500px; 
-    margin-top: 3cm;
-}
-
 #poster {
+    height: 500px; 
     opacity: 0;
     transition: opacity 1s ease-in-out;
 }
@@ -27,13 +22,29 @@
     opacity: 1;
 }
 
-#video-background {
-    position: absolute;
+.video-background {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     filter: blur(20px);
+    background-color: black;
+    z-index: -1;
+}
+
+#video-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 576px) {
+    #paragrafo1,
+    #poster {
+        margin-bottom: 20px;
+    }
 }
 
 .container {
@@ -42,3 +53,29 @@
 }
 
 
+#retangulo{
+    color: black;
+}
+
+#paragrafo2 {
+    text-align: left; 
+    color: rgb(202, 197, 197);
+}
+
+#paragrafo2 {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#paragrafo2.aparecer {
+    opacity: 1;
+}
+
+#badgesGeneros {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#badgesGeneros.aparecer {
+    opacity: 1;
+}
