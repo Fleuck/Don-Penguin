@@ -4,18 +4,29 @@ const emailInput = document.querySelector("#email");
 const senhaInput = document.querySelector("#senha");
 const selectElement = document.querySelector("select");
 
+nomeInput.addEventListener("input", function() {
+    if (!nomeValid(nomeInput.value)) {
+        document.getElementById("name-error").textContent = "Insira um usuário de 3 a 12 caracteres. É permitido letras maiusculas, minusculas e (._@) ";
+    } else {
+        document.getElementById("name-error").textContent = "";
+    }
+});
+//emailInput.addEventListener("input", function() {
+//    if (!emailValid(emailInput.value)) {
+//        document.getElementById("email-error").textContent = "Insira um válido. Ex: filmes@cinema.com";
+//    } else {
+//        document.getElementById("email-error").textContent = "";
+//    }
+//});
+
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    // Pra ver se está vazio
     if (!nomeValid(nomeInput.value)) {
-        alert("Por favor, abrevie seu nome!");
         return;
     }
     if (!emailValid(emailInput.value)) {
-        alert("Por favor, preencha seu email corretamente!");
         return;
     }
-
     if (!senhaValid(senhaInput.value)) {
         alert("Por favor, preencha sua senha corretamente com 8 ou mais dígitos");
         return;
@@ -24,9 +35,8 @@ form.addEventListener("submit", (event) => {
     form.submit();
 });
 
-// Validar nome
 function nomeValid(nome) {
-    const nomeregex = /^[a-zA-Z]+((\s[a-zA-Z]+){0,10})?$/g;
+    const nomeregex = /^[a-zA-Z0-9._@]{3,12}$/g;
 
     if (nomeregex.test(nome)) {
         return true;
@@ -35,7 +45,6 @@ function nomeValid(nome) {
     return false;
 }
 
-// Validar email
 function emailValid(email) {
     const emailregex = /^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-z]+(\.[a-z]+)?$/g;
 
@@ -46,7 +55,6 @@ function emailValid(email) {
     return false;
 }
 
-// Validar senha
 function senhaValid(senha) {
     const senharegex = /^[a-zA-Z0-9.-_!@#$%&* ]{8,}$/g;
 

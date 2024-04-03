@@ -36,3 +36,7 @@ body {
     padding-left: 11%;
     color: rgb(255, 245, 232);
 }
+
+.error-message{
+    color: red;
+}
