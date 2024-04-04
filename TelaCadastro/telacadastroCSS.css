@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #333 !important;
+    background-color: #151515 !important;
 }    
 
 .custom-form .form-control {
@@ -19,24 +19,42 @@ body {
     border: 2px solid rgba(0, 0, 0, .5);
     backdrop-filter: blur(20px);
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    background-color: #333;
+    background-color: #1f1f1f61;
     margin-left: 33%;
     margin-right: 33%;
     border-radius: 30px;
 }
 
 .titulo {
-    font-size: 52px;
-    color: antiquewhite;
+    z-index: 1;
+    font-size: 40px;
+    text-align: center;
+    background: linear-gradient(to right, #ffffff 20%, rgb(255, 106, 0) 40%, rgb(255, 98, 0) 60%, #ffffff 80%);
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s linear infinite;
+    margin: 0;
+    padding: 1%;
+
 }
 
 .LabelDeslocamentoEsquerda {
     display: flex;
     align-items: start;
     padding-left: 11%;
-    color: rgb(255, 245, 232);
+    color: rgb(255, 255, 255);
 }
 
 .error-message{
-    color: red;
+    color: rgb(255, 72, 0);
 }
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+        }
+    }
+
