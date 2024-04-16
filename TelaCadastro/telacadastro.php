@@ -21,27 +21,28 @@
                     <label> Digite seu nome de usuário: </label>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <input type="text" id="nome" name="nome" style="width: 400px;" placeholder="Seu nome"
+                    <input type="text" id="nome" name="nome" style="width: 80%;" placeholder="Seu nome"
                         class="form-control" required/>
                 </div>
-                <div class="mb-5 error-message" id="name-error"></div>
+                <div class="mb-4 error-message" id="name-error"></div>
                 <div class="LabelDeslocamentoEsquerda mb-1">
                     <label> Digite seu email: </label>
                 </div>
-                    <div class="mb-5 d-flex justify-content-center">
-                        <input type="email" id="email" name="email" style="width: 400px;" placeholder="Seu email"
+                    <div class="mb-1 d-flex justify-content-center">
+                        <input type="email" id="email" name="email" style="width: 80%;" placeholder="Seu email"
                             class="form-control" required />
-                            <br><div class="error-message" id="email-error"></div>
                     </div>
+                    <div class="mb-4 error-message" id="email-error"></div>
                 <div class="LabelDeslocamentoEsquerda mb-1">
                     <label> Crie sua nova senha: </label>
                 </div>
-                <div class="mb-5 d-flex justify-content-center">
-                    <input type="password" id="senha" name="senha" style="width: 400px;" placeholder="Sua senha"
+                <div class="mb-1 d-flex justify-content-center">
+                    <input type="password" id="senha" name="senha" style="width: 80%;" placeholder="Sua senha"
                         class="form-control" required />
                 </div>
+                <div class="mb-4 error-message" id="senha-error"></div>
                 <div class="GeneroDeslocamentoDireita mb-5 d-flex justify-content-center">
-                    <select class="form-select" aria-label="Default select example" style="width: 200px" required>
+                    <select class="form-select" aria-label="Default select example" style="width: 40%;" required>
                         <option value="" disabled selected hidden>Escolha seu gênero: </option>
                         <option value="1">Masculino</option>
                         <option value="2">Feminino</option>
@@ -50,7 +51,7 @@
                 </div>
                 <div class="mb-5 d-flex justify-content-center">
                     <input type="submit" id="btnSubmit" name="btnSubmit" value="Enviar" class="form-control"
-                        style="width: 200px;" />
+                        style="width: 45%;" />
                 </div>
             </form>
         </div>
