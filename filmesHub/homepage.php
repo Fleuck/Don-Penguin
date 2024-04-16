@@ -1,8 +1,8 @@
 <?php
     session_start();
 
-    if(isset($_SESSION['userID'])) {
-        $username = $_SESSION['userID'];
+    if(isset($_SESSION['userName'])) {
+        $username = $_SESSION['userName'];
     } else {
         $username = "";
     }
