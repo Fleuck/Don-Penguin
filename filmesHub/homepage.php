@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+    if(isset($_SESSION['userID'])) {
+        $username = $_SESSION['userID'];
+    } else {
+        $username = "";
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +28,7 @@
                 <img class="logo" src="../midia/penguin.jpg" alt="logo">
                 <nav>
                     <ul class="barra">
+                        <a class="menu" href=""><li><?php echo "Bem-vindo, $username!"; ?></li></a>
                         <a class="menu" href=""><li>Animacao</li></a>
                         <a class="menu" href=""><li>Acao</li></a>
                         <a class="menu" href=""><li>Comedia</li></a>

@@ -13,7 +13,7 @@
         <p>DON-PENGUIN</p>
     </div>
     <div class="text-center">
-        <form name="form" id="form" action="../filmesHub/homepage.html" enctype="text/plain" method="get" class="custom-form">
+        <form name="form" id="form" action="../processo_login.php" enctype="text/plain" method="get" class="custom-form">
             <div class="LabelDeslocamentoEsquerda mb-1">
                 <label> Digite seu email: </label>
             </div>
