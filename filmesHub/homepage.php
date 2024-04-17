@@ -29,6 +29,7 @@
                 <nav>
                     <ul class="barra">
                         <a class="menu" href=""><li><?php echo "Bem-vindo, $username!"; ?></li></a>
+                        <a class="menu" href="../telaMudarInfo/layoutEdit.html"><li>Alterar Dados</li></a>
                         <a class="menu" href=""><li>Animacao</li></a>
                         <a class="menu" href=""><li>Acao</li></a>
                         <a class="menu" href=""><li>Comedia</li></a>
