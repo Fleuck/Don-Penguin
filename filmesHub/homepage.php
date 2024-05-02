@@ -1,4 +1,7 @@
 <?php
+require("../verificar_login.php");  
+?>
+<?php
     session_start();
 
     if(isset($_SESSION['userName'])) {
@@ -36,6 +39,7 @@
                         <a class="menu" href=""><li>Classicos</li></a>
                         <a class="menu" href=""><li>Romance</li></a>
                         <a class="menu" href=""><li>Terror/Suspense</li></a>
+                        <a class="menu" href="../logout.php"><li>Sair</li></a>
                         <div class="big">
                             <i id="save" class="fa-solid fa-bookmark"></i>
                             <i id="x" class="fa-solid fa-xmark"></i>
@@ -63,7 +67,7 @@
             </div>
         </header> 
 
-        <a href="../layoutTelaFilme/layout.html"><div class="container" id="movie-container"></div></a>
+        <a href="../layoutTelaFilme/layout.php"><div class="container" id="movie-container"></div></a>
         <div class="searchBar" id="searchBar">
             <form>
                 <input type="text" id="nome" name="nome" placeholder="O que vai assisitr ?"><br>
