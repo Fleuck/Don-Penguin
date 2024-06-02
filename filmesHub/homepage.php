@@ -2,8 +2,6 @@
 require("../verificar_login.php");  
 ?>
 <?php
-    session_start();
-
     if(isset($_SESSION['userName'])) {
         $username = $_SESSION['userName'];
     } else {

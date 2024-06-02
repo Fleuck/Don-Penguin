@@ -19,7 +19,10 @@ form.addEventListener("submit", (event) => {
             if (xhr.status === 200) {
                 if (xhr.responseText === "success") {
                     window.location.href = "../filmesHub/homepage.php";
-                } else {
+                } else if(xhr.responseText === "success adm") {
+                    window.location.href = "../admin/homepageAdmin.php"
+                }
+                else {
                     document.getElementById("senha-error").textContent = "Email ou senha incorretos.";
                 }
             } else {
