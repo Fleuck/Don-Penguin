@@ -79,7 +79,9 @@ while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
     $registro[] = $id_ator; 
     $registro[] = $nome_ator;
     $registro[] = $descricao_ator;
-    $registro[] = "<button type='button' id='$id_ator' class='btn btn-primary btn-sm' onclick='visAtor($id_ator)'> Vizualizar </button>";
+    $registro[] = "<button type='button' id='$id_ator' class='btn btn-primary btn-sm' onclick='visAtor($id_ator)'> Vizualizar </button> 
+    <button type='button' id='$id_ator' class='btn btn-warning btn-sm' onclick='editAtor($id_ator)'> Editar </button> 
+    <button type='button' id='$id_ator' class='btn btn-danger btn-sm' onclick='apagarAtor($id_ator)'> Apagar </button>";
     $dados[] = $registro;
 }
 

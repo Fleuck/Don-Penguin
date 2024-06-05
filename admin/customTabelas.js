@@ -190,3 +190,261 @@ async function visDiretor(id){
         document.getElementById("msgAlerta").innerHTML = resposta['msg'];
     }
 }
+
+const editModal = new bootstrap.Modal(document.getElementById("editUsuarioModal"))
+async function editUsuario(id){
+    const dados = await fetch('visualizarUsuario.php?id=' + id);
+    const resposta = await dados.json();
+    if(resposta['status']){
+        document.getElementById("msgAlertErroEditUsuario").innerHTML = "";
+        document.getElementById("msgAlerta").innerHTML = "";
+        editModal.show();
+
+        document.getElementById("editid").value = resposta['dados'].id_usuario;
+        document.getElementById("editNome").value = resposta['dados'].nome_usuario;
+        document.getElementById("editDataNascimento").value = resposta['dados'].nascimento;
+        document.getElementById("editSexo").value = resposta['dados'].genero;
+        document.getElementById("editEmail").value = resposta['dados'].email;
+        document.getElementById("editAdm").value = resposta['dados'].adm;
+    }else {
+        document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+    }
+}
+
+const formEditUser = document.getElementById("form-edit-usuario");
+
+if(formEditUser){
+    formEditUser.addEventListener("submit", async(e) => {
+        e.preventDefault();
+        const dadosForm = new FormData(formEditUser);
+
+        const dados = await fetch("editarUsuario.php", {
+            method: "POST",
+            body: dadosForm
+        });
+
+        const resposta = await dados.json();
+
+        if(resposta['status']){
+            document.getElementById("msgAlertErroEditUsuario").innerHTML = resposta['msg'];
+        } else {
+            document.getElementById("msgAlertErroEditUsuario").innerHTML = resposta['msg'];
+        }
+    })
+}else {
+
+}
+
+const editModalFilme = new bootstrap.Modal(document.getElementById("editFilmeModal"))
+async function editFilme(id){
+    const dados = await fetch('visualizarFilme.php?id=' + id);
+    const resposta = await dados.json();
+    if(resposta['status']){
+        document.getElementById("msgAlertErroEditFilme").innerHTML = "";
+        document.getElementById("msgAlertaFilme").innerHTML = "";
+        editModalFilme.show();
+
+        document.getElementById("editidFilme").value = resposta['dados'].id_filme;
+        document.getElementById("capaEdit").value = resposta['dados'].capa_filme;
+        document.getElementById("nomeEdit").value = resposta['dados'].nome_filme;
+        document.getElementById("notaEdit").value = resposta['dados'].nota_filme;
+        document.getElementById("dataEdit").value = resposta['dados'].lancamento;
+        document.getElementById("generoEdit").value = resposta['dados'].genero_filme;
+        document.getElementById("urlEdit").value = resposta['dados'].url_filme;
+        document.getElementById("sinopseEdit").value = resposta['dados'].sinopse;
+    }else {
+        document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+    }
+}
+
+const formEditFilme = document.getElementById("form-edit-Filme");
+
+if(formEditFilme){
+    formEditFilme.addEventListener("submit", async(e) => {
+        e.preventDefault();
+        const dadosForm = new FormData(formEditFilme);
+
+        const dados = await fetch("editarFilme.php", {
+            method: "POST",
+            body: dadosForm
+        });
+
+        const resposta = await dados.json();
+
+        if(resposta['status']){
+            document.getElementById("msgAlertErroEditFilme").innerHTML = resposta['msg'];
+        } else {
+            document.getElementById("msgAlertErroEditFilme").innerHTML = resposta['msg'];
+        }
+    })
+}else {
+
+}
+
+const editModalAtor = new bootstrap.Modal(document.getElementById("editAtorModal"));
+async function editAtor(id){
+    const dados = await fetch('visualizarAtor.php?id=' + id);
+    const resposta = await dados.json();
+    if(resposta['status']){
+        document.getElementById("msgAlertErroEditAtor").innerHTML = "";
+        document.getElementById("msgAlertaAtor").innerHTML = "";
+        editModalAtor.show();
+
+        document.getElementById("editidAtor").value = resposta['dados'].id_ator;
+        document.getElementById("idFilmeEdit").value = resposta['dados'].id_filme;
+        document.getElementById("nomeEditAtor").value = resposta['dados'].nome_ator;
+        document.getElementById("descricaoEditAtor").value = resposta['dados'].descricao_ator;
+    }else {
+        document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+    }
+}
+
+const formEditAtor = document.getElementById("form-edit-ator");
+
+if(formEditAtor){
+    formEditAtor.addEventListener("submit", async(e) => {
+        e.preventDefault();
+        const dadosForm = new FormData(formEditAtor);
+
+        const dados = await fetch("editarAtor.php", {
+            method: "POST",
+            body: dadosForm
+        });
+
+        const resposta = await dados.json();
+
+        if(resposta['status']){
+            document.getElementById("msgAlertErroEditAtor").innerHTML = resposta['msg'];
+        } else {
+            document.getElementById("msgAlertErroEditAtor").innerHTML = resposta['msg'];
+        }
+    })
+}else {
+
+}
+
+const editModalDiretor = new bootstrap.Modal(document.getElementById("editDiretorModal"));
+async function editDiretor(id){
+    const dados = await fetch('visualizarDiretor.php?id=' + id);
+    const resposta = await dados.json();
+    if(resposta['status']){
+        document.getElementById("msgAlertErroEditDiretor").innerHTML = "";
+        document.getElementById("msgAlertaDiretor").innerHTML = "";
+        editModalDiretor.show();
+
+        document.getElementById("editidDiretor").value = resposta['dados'].id_diretor;
+        document.getElementById("idFilmeEditDiretor").value = resposta['dados'].id_filme;
+        document.getElementById("nomeEditDiretor").value = resposta['dados'].nome_diretor;
+        document.getElementById("descricaoEditDiretor").value = resposta['dados'].descricao_diretor;
+    }else {
+        document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+    }
+}
+
+const formEditDiretor = document.getElementById("form-edit-diretor");
+
+if(formEditDiretor){
+    formEditDiretor.addEventListener("submit", async(e) => {
+        e.preventDefault();
+        const dadosForm = new FormData(formEditDiretor);
+
+        const dados = await fetch("editarDiretor.php", {
+            method: "POST",
+            body: dadosForm
+        });
+
+        const resposta = await dados.json();
+
+        if(resposta['status']){
+            document.getElementById("msgAlertErroEditDiretor").innerHTML = resposta['msg'];
+        } else {
+            document.getElementById("msgAlertErroEditDiretor").innerHTML = resposta['msg'];
+        }
+    })
+}else {
+
+}
+
+async function apagarUsuario(id) {
+
+    var confirmar = confirm("Tem certeza que deseja excluir o registro selecionado?");
+
+    if (confirmar) {
+        const dados = await fetch("apagarUsuario.php?id=" + id);
+        const resposta = await dados.json();
+        //console.log(resposta);
+
+        if (resposta['status']) {
+            document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+
+            // Atualizar a lista de registros
+            listarDataTables = $('#listar-usuario').DataTable();
+            listarDataTables.draw();
+        } else {
+            document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+        }
+    }
+}
+
+async function apagarAtor(id) {
+
+    var confirmar = confirm("Tem certeza que deseja excluir o registro selecionado?");
+
+    if (confirmar) {
+        const dados = await fetch("apagarAtor.php?id=" + id);
+        const resposta = await dados.json();
+        //console.log(resposta);
+
+        if (resposta['status']) {
+            document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+
+            // Atualizar a lista de registros
+            listarDataTables = $('#listar-usuario').DataTable();
+            listarDataTables.draw();
+        } else {
+            document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+        }
+    }
+}
+
+async function apagarFilme(id) {
+
+    var confirmar = confirm("Tem certeza que deseja excluir o registro selecionado?");
+
+    if (confirmar) {
+        const dados = await fetch("apagarFilme.php?id=" + id);
+        const resposta = await dados.json();
+        //console.log(resposta);
+
+        if (resposta['status']) {
+            document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+
+            // Atualizar a lista de registros
+            listarDataTables = $('#listar-usuario').DataTable();
+            listarDataTables.draw();
+        } else {
+            document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+        }
+    }
+}
+
+async function apagarDiretor(id) {
+
+    var confirmar = confirm("Tem certeza que deseja excluir o registro selecionado?");
+
+    if (confirmar) {
+        const dados = await fetch("apagarDiretor.php?id=" + id);
+        const resposta = await dados.json();
+        //console.log(resposta);
+
+        if (resposta['status']) {
+            document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+
+            // Atualizar a lista de registros
+            listarDataTables = $('#listar-usuario').DataTable();
+            listarDataTables.draw();
+        } else {
+            document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+        }
+    }
+}

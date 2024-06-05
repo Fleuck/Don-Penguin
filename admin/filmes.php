@@ -109,7 +109,9 @@ while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
     $registro[] = $genero_filme;
     $registro[] = $url_filme;
     $registro[] = $sinopse;
-    $registro[] = "<button type='button' id='$id_filme' class='btn btn-primary btn-sm' onclick='visFilme($id_filme)'> Vizualizar </button>";
+    $registro[] = "<button type='button' id='$id_filme' class='btn btn-primary btn-sm' onclick='visFilme($id_filme)'> Vizualizar </button> 
+    <button type='button' id='$id_filme' class='btn btn-warning btn-sm' onclick='editFilme($id_filme)'> Editar </button> 
+    <button type='button' id='$id_filme' class='btn btn-danger btn-sm' onclick='apagarFilme($id_filme)'> Apagar </button>";
     $dados[] = $registro;
 }
 

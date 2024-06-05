@@ -93,7 +93,9 @@ while ($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
     $registro[] = $capa_user;
     $registro[] = $genero;
     $registro[] = $email;
-    $registro[] = "<button type='button' id='$id_usuario' class='btn btn-primary btn-sm' onclick='visUsuario($id_usuario)'> Vizualizar </button>";
+    $registro[] = "<button type='button' id='$id_usuario' class='btn btn-primary btn-sm' onclick='visUsuario($id_usuario)'> Vizualizar </button> 
+    <button type='button' id='$id_usuario' class='btn btn-warning btn-sm' onclick='editUsuario($id_usuario)'> Editar </button> 
+    <button type='button' id='$id_usuario' class='btn btn-danger btn-sm' onclick='apagarUsuario($id_usuario)'> Apagar </button>";
     $dados[] = $registro;
 }
 

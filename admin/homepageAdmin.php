@@ -42,6 +42,7 @@ if(isset($_SESSION['userName'])) {
     Cadastrar
     </button>
     </div>
+    <span id="msgAlertaFilme"></span>
     <table id="filmes" class="table table-responsive compact cell-border hover nowrap stripe" style="width:100%">
         <thead>
             <tr>
@@ -61,11 +62,11 @@ if(isset($_SESSION['userName'])) {
     <div class="col">
     <div class="d-flex justify-content-between align-items-center pt-3 pb-2">
     <h2>Usuários</h2>
-    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#cadUsuarioModal">
+    <button type="button" class="btn btn-primary btn-sm pull-right" data-bs-toggle="modal" data-bs-target="#cadUsuarioModal">
     Cadastrar
     </button>
-    <span id="msgAlerta"></span>
     </div>
+    <span id="msgAlerta"></span>
     <table id="usuarios" class="table table-responsive compact cell-border hover nowrap stripe" style="width:100%">
         <thead>
             <tr>
@@ -87,6 +88,7 @@ if(isset($_SESSION['userName'])) {
     Cadastrar
     </button>
     </div>
+    <span id="msgAlertaAtor"></span>
         <table id="ator" class="table table-responsive compact cell-border hover nowrap stripe" style="width:100%">
         <thead>
             <tr>
@@ -105,6 +107,7 @@ if(isset($_SESSION['userName'])) {
     Cadastrar
     </button>
     </div>
+    <span id="msgAlertaDiretor"></span>
         <table id="diretor" class="table table-responsive compact cell-border hover nowrap stripe" style="width:100%">
         <thead>
             <tr>
@@ -203,6 +206,66 @@ if(isset($_SESSION['userName'])) {
                      <dt class="col-sm-3">ADM</dt>
                      <dd class="col-sm-9"><span id="admUsuario"></span></dd>
                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editUsuarioModal" tabindex="-1" aria-labelledby="editUsuarioModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editUsuarioModalLabel">Editar Usuário</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span id="msgAlertErroEditUsuario"></span>
+                    <form method="POST" id="form-edit-usuario" enctype="multipart/form-data">
+
+                        <input type="hidden" name="editid" id="editid">
+
+                        <div class="row mb-3">
+                            <label for="editNome" class="col-sm-2 col-form-label">Nome</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="editNome" class="form-control" id="editNome" placeholder="Nome completo">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="editDataNascimento" class="col-sm-2 col-form-label">Aniversário</label>
+                            <div class="col-sm-10">
+                                <input type="date" name="editDataNascimento" class="form-control" id="editDataNascimento" placeholder="Salário">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="editSexo" class="col-sm-2 col-form-label">Sexo</label>
+                            <div class="col-sm-10">
+                                <select class="form-select" name="editSexo" id="editSexo">
+                                <option selected></option>
+                                <option value="masculino">Masculino</option>
+                                <option value="feminino">Feminino</option>
+                                <option value="outro">Outro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="editEmail" class="col-sm-2 col-form-label">E-mail</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="editEmail" class="form-control" id="editEmail" placeholder="E-mail">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="editAdm" class="col-sm-2 col-form-label">Adm</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="editAdm" class="form-control" id="editAdm" placeholder="Definir como administrador">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-warning btn-sm" value="Salvar">Salvar</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -313,6 +376,75 @@ if(isset($_SESSION['userName'])) {
         </div>
     </div>
 
+    <div class="modal fade" id="editFilmeModal" tabindex="-1" aria-labelledby="editFilmeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editFilmeModalLabel">Editar Filme</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span id="msgAlertErroEditFilme"></span>
+                    <form method="POST" id="form-edit-Filme" enctype="multipart/form-data">
+
+                        <input type="hidden" name="editidFilme" id="editidFilme">
+
+                        <div class="row mb-3">
+                            <label for="capaEdit" class="col-sm-2 col-form-label">Capa</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="capaEdit" class="form-control" id="capaEdit" placeholder="URL da capa">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="nomeEdit" class="col-sm-2 col-form-label">Nome</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="nomeEdit" class="form-control" id="nomeEdit" placeholder="Nome do filme">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="notaEdit" class="col-sm-2 col-form-label">Nota</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="notaEdit" class="form-control" id="notaEdit" placeholder="Nota do filme">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="dataEdit" class="col-sm-2 col-form-label">Lançamento</label>
+                            <div class="col-sm-10">
+                                <input type="date" name="dataEdit" class="form-control" id="dataEdit" placeholder="Data de Lançamento">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="generoEdit" class="col-sm-2 col-form-label">Gênero</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="generoEdit" class="form-control" id="generoEdit" placeholder="Genero do filme">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="urlEdit" class="col-sm-2 col-form-label">URL</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="urlEdit" class="form-control" id="urlEdit" placeholder="URL do Filme">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="sinopseEdit" class="col-sm-2 col-form-label">Sinopse</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="sinopseEdit" class="form-control" id="sinopseEdit" placeholder="Sinopse do filme">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-warning btn-sm" value="SalvarFilme">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="cadAtorModal" tabindex="-1" aria-labelledby="cadAtorModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -379,6 +511,48 @@ if(isset($_SESSION['userName'])) {
         </div>
     </div>
 
+    <div class="modal fade" id="editAtorModal" tabindex="-1" aria-labelledby="editAtorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editAtorModalLabel">Editar Ator</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span id="msgAlertErroEditAtor"></span>
+
+                    <form method="POST" id="form-edit-ator" enctype="multipart/form-data">
+
+                        <input type="hidden" name="editidAtor" id="editidAtor">
+
+                        <div class="row mb-3">
+                            <label for="idFilmeEdit" class="col-sm-2 col-form-label">ID Filmes</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="idFilmeEdit" class="form-control" id="idFilmeEdit" >
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="nomeEditAtor" class="col-sm-2 col-form-label">Nome</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="nomeEditAtor" class="form-control" id="nomeEditAtor" >
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="descricaoEditAtor" class="col-sm-2 col-form-label">Descricao</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="descricaoEditAtor" class="form-control" id="descricaoEditAtor">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-warning btn-sm" value="Salvar">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="cadDiretorModal" tabindex="-1" aria-labelledby="cadDiretorModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -440,6 +614,48 @@ if(isset($_SESSION['userName'])) {
                      <dd class="col-sm-9"><span id="descricaoDiretorVis"></span></dd>
 
                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editDiretorModal" tabindex="-1" aria-labelledby="editDiretorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editDiretorModalLabel">Editar Diretor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span id="msgAlertErroEditDiretor"></span>
+
+                    <form method="POST" id="form-edit-diretor" enctype="multipart/form-data">
+
+                        <input type="hidden" name="editidDiretor" id="editidDiretor">
+
+                        <div class="row mb-3">
+                            <label for="idFilmeEdit" class="col-sm-2 col-form-label">ID Filmes</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="idFilmeEditDiretor" class="form-control" id="idFilmeEditDiretor" >
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="nomeEditDiretor" class="col-sm-2 col-form-label">Nome</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="nomeEditDiretor" class="form-control" id="nomeEditDiretor" >
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="descricaoEditDiretor" class="col-sm-2 col-form-label">Descricao</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="descricaoEditDiretor" class="form-control" id="descricaoEditDiretor">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-warning btn-sm" value="Salvar">Salvar</button>
+                    </form>
                 </div>
             </div>
         </div>
