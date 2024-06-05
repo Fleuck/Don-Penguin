@@ -44,4 +44,3 @@ if(empty($dados['capa'])){
 };
 
 echo json_encode($retorna);
-?>

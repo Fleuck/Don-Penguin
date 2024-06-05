@@ -38,7 +38,7 @@ if(isset($_SESSION['userName'])) {
     <div class="col">
     <div class="d-flex justify-content-between align-items-center pt-3 pb-2">
     <h2>Filmes</h2>
-    <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#cadFilmeModal">
+    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#cadFilmeModal">
     Cadastrar
     </button>
     </div>
@@ -52,7 +52,8 @@ if(isset($_SESSION['userName'])) {
                 <th>Data de Lançamento</th>
                 <th>Gênero(s)</th>
                 <th>URL</th>
-                <th> Sinopse </th>
+                <th>Sinopse</th>
+                <th>Ações</th>
             </tr>
         </thead>
     </table>
@@ -60,9 +61,10 @@ if(isset($_SESSION['userName'])) {
     <div class="col">
     <div class="d-flex justify-content-between align-items-center pt-3 pb-2">
     <h2>Usuários</h2>
-    <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#cadUsuarioModal">
+    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#cadUsuarioModal">
     Cadastrar
     </button>
+    <span id="msgAlerta"></span>
     </div>
     <table id="usuarios" class="table table-responsive compact cell-border hover nowrap stripe" style="width:100%">
         <thead>
@@ -73,30 +75,43 @@ if(isset($_SESSION['userName'])) {
                 <th>Capa do Usuário</th>
                 <th>Sexo</th>
                 <th>E-Mail</th>
+                <th>Ações</th>
             </tr>
         </thead>
     </table>
     </div>
     <div class="col">
-        <h2>Atores</h2>
+    <div class="d-flex justify-content-between align-items-center pt-3 pb-2">
+    <h2>Atores</h2>
+    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#cadAtorModal">
+    Cadastrar
+    </button>
+    </div>
         <table id="ator" class="table table-responsive compact cell-border hover nowrap stripe" style="width:100%">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Descrição</th>
+                <th>Ações</th>
             </tr>
             </thead>
         </table>
     </div>
     <div class="col">
-        <h2>Diretores</h2>
+    <div class="d-flex justify-content-between align-items-center pt-3 pb-2">
+    <h2>Diretores</h2>
+    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#cadDiretorModal">
+    Cadastrar
+    </button>
+    </div>
         <table id="diretor" class="table table-responsive compact cell-border hover nowrap stripe" style="width:100%">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Descrição</th>
+                <th>Ações</th>
             </tr>
             </thead>
         </table>        
@@ -156,6 +171,38 @@ if(isset($_SESSION['userName'])) {
 
                         <button type="submit" class="btn btn-outline-success btn-sm" value="Cadastrar">Cadastrar</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="visUsuarioModal" tabindex="-1" aria-labelledby="visUsuarioModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="visUsuarioModalLabel">Detalhes do Usuário</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                   <dl class="row">
+                     <dt class="col-sm-3">ID</dt>
+                     <dd class="col-sm-9"><span id="idUsuario"></span></dd>
+
+                     <dt class="col-sm-3">Nome</dt>
+                     <dd class="col-sm-9"><span id="nomeUsuario"></span></dd>
+
+                     <dt class="col-sm-3">Aniversário</dt>
+                     <dd class="col-sm-9"><span id="aniversarioUsuario"></span></dd>
+
+                     <dt class="col-sm-3">Sexo</dt>
+                     <dd class="col-sm-9"><span id="sexoUsuario"></span></dd>
+
+                     <dt class="col-sm-3">E-Mail</dt>
+                     <dd class="col-sm-9"><span id="emailUsuario"></span></dd>
+
+                     <dt class="col-sm-3">ADM</dt>
+                     <dd class="col-sm-9"><span id="admUsuario"></span></dd>
+                   </dl>
                 </div>
             </div>
         </div>
@@ -223,6 +270,176 @@ if(isset($_SESSION['userName'])) {
 
                         <button type="submit" class="btn btn-outline-success btn-sm" value="Cadastrar">Cadastrar</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="visFilmeModal" tabindex="-1" aria-labelledby="visFilmeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="visFilmeModalLabel">Detalhes do Filme</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                   <dl class="row">
+                     <dt class="col-sm-3">ID</dt>
+                     <dd class="col-sm-9"><span id="idFilmeVis"></span></dd>
+
+                     <dt class="col-sm-3">Capa</dt>
+                     <dd class="col-sm-9"><span id="capaFilmeVis"></span></dd>
+
+                     <dt class="col-sm-3">Nome</dt>
+                     <dd class="col-sm-9"><span id="nomeFilmeVis"></span></dd>
+
+                     <dt class="col-sm-3">Nota</dt>
+                     <dd class="col-sm-9"><span id="notaFilmeVis"></span></dd>
+
+                     <dt class="col-sm-3">Lançamento</dt>
+                     <dd class="col-sm-9"><span id="dataFilmeVis"></span></dd>
+
+                     <dt class="col-sm-3">Gênero</dt>
+                     <dd class="col-sm-9"><span id="generoFilmeVis"></span></dd>
+
+                     <dt class="col-sm-3">URL</dt>
+                     <dd class="col-sm-9"><span id="urlFilmeVis"></span></dd>
+
+                     <dt class="col-sm-3">Sinopse</dt>
+                     <dd class="col-sm-9"><span id="sinopseFilmeVis"></span></dd>
+                   </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cadAtorModal" tabindex="-1" aria-labelledby="cadAtorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cadAtorModalLabel">Cadastrar Ator</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span id="msgAlertErroCadAtor"></span>
+                    <form method="POST" id="form-cad-ator" enctype="multipart/form-data">
+
+                        <div class="row mb-3">
+                            <label for="idFilme" class="col-sm-2 col-form-label">Capa</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="idFilme" class="form-control" id="idFilme" placeholder="ID dos filmes que o ator participa">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="nome" class="col-sm-2 col-form-label">Nome</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome do ator">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="descricao" class="col-sm-2 col-form-label">Descrição</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="descricao" class="form-control" id="descricao" placeholder="Descreva o ator">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-success btn-sm" value="Cadastrar">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="visAtorModal" tabindex="-1" aria-labelledby="visAtorModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="visAtorModalLabel">Detalhes do Ator</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                   <dl class="row">
+                     <dt class="col-sm-3">ID Ator</dt>
+                     <dd class="col-sm-9"><span id="idAtorVis"></span></dd>
+
+                     <dt class="col-sm-3">ID Filme</dt>
+                     <dd class="col-sm-9"><span id="idFilmeAtorVis"></span></dd>
+
+                     <dt class="col-sm-3">Nome</dt>
+                     <dd class="col-sm-9"><span id="nomeAtorVis"></span></dd>
+
+                     <dt class="col-sm-3">Descrição</dt>
+                     <dd class="col-sm-9"><span id="descricaoAtorVis"></span></dd>
+
+                   </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cadDiretorModal" tabindex="-1" aria-labelledby="cadDiretorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cadDiretorModalLabel">Cadastrar Diretor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span id="msgAlertErroCadDiretor"></span>
+                    <form method="POST" id="form-cad-diretor" enctype="multipart/form-data">
+
+                        <div class="row mb-3">
+                            <label for="idFilme" class="col-sm-2 col-form-label">Capa</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="idFilme" class="form-control" id="idFilme" placeholder="ID dos filmes que o diretor dirigiu">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="nome" class="col-sm-2 col-form-label">Nome</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome do diretor">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="descricao" class="col-sm-2 col-form-label">Descrição</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="descricao" class="form-control" id="descricao" placeholder="Descreva o diretor">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-success btn-sm" value="Cadastrar">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="visDiretorModal" tabindex="-1" aria-labelledby="visDiretorModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="visDiretorModalLabel">Detalhes do Diretor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                   <dl class="row">
+                     <dt class="col-sm-3">ID Diretor</dt>
+                     <dd class="col-sm-9"><span id="idDiretorVis"></span></dd>
+
+                     <dt class="col-sm-3">ID Filme</dt>
+                     <dd class="col-sm-9"><span id="idFilmeDiretorVis"></span></dd>
+
+                     <dt class="col-sm-3">Nome</dt>
+                     <dd class="col-sm-9"><span id="nomeDiretorVis"></span></dd>
+
+                     <dt class="col-sm-3">Descrição</dt>
+                     <dd class="col-sm-9"><span id="descricaoDiretorVis"></span></dd>
+
+                   </dl>
                 </div>
             </div>
         </div>

@@ -36,4 +36,3 @@ if(empty($dados['nome'])){
 };
 
 echo json_encode($retorna);
-?>
