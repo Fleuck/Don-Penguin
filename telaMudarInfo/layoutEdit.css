@@ -38,22 +38,13 @@ body {
     animation: shine 5s linear infinite;
     margin: 0;
     padding: 1%;
-
-}
-
-.GeneroDeslocamentoDireita {
-    padding-left: 1rem;
 }
 
 .LabelDeslocamentoEsquerda {
     display: flex;
     align-items: start;
-    padding-left: 12%;
-    color: rgb(255, 245, 232);
-}
-
-.Corparacadastro{
-    color: rgb(155, 155, 155);
+    padding-left: 11%;
+    color: rgb(255, 255, 255);
 }
 
 .error-message{
@@ -66,61 +57,61 @@ body {
         background-position: 200% center;
         }
     }
-    
-    .logo{
-        width: 4.4%;
-        max-width: 150px;
-        cursor: pointer;
-    }
-    
-    a{
-        text-decoration: none;
-    }
-    
-    a:-webkit-any-link {
-        color: #dbdbdb
-    }
-    
-    li{
-        margin-right: 3rem;
-        list-style: none;
-    }
-    
-    .org{
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0px 5%;
-        z-index: 999;
-        transition: all 0.3s ease 0s;
-        background-color: #070707;
-     }
-    
-    .barra{
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex; 
-    }
-    
-    .menu{
-        display: inline-block;
-        padding: padding 0px 20px;
-        flex-grow: 1; 
-        font-size: 1.2rem;
-        color: rgb(229, 229, 229);
-        transition: all 0.3s ease 0s;
-    }
-    
-    .menu:hover{ 
-        color: #ffffff;
-        font-size: 1.3rem;
-    }
 
-    .tudo{
-        margin: 10%;
-    }
+.logo {
+    width: 4.4%;
+    max-width: 150px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:-webkit-any-link {
+    color: #dbdbdb;
+}
+
+li {
+    margin-right: 3rem;
+    list-style: none;
+}
+
+.org {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 5%;
+    z-index: 999;
+    transition: all 0.3s ease 0s;
+    background-color: #070707;
+}
+
+.barra {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; 
+}
+
+.menu {
+    display: inline-block;
+    padding: padding 0px 20px;
+    flex-grow: 1; 
+    font-size: 1.2rem;
+    color: rgb(229, 229, 229);
+    transition: all 0.3s ease 0s;
+}
+
+.menu:hover { 
+    color: #ffffff;
+    font-size: 1.3rem;
+}
+
+.tudo {
+    margin: 5%;
+}

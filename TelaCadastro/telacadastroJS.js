@@ -106,7 +106,7 @@ function emailValid(email) {
 }
 
 function senhaValid(senha) {
-    const senharegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()-_=+{};:,<.>]).{8,}$/g;
+    const senharegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/;
 
     if (senharegex.test(senha)) {
         return true;
