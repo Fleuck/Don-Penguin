@@ -4,6 +4,15 @@ const emailInput = document.querySelector("#email");
 const senhaInput = document.querySelector("#senha");
 const selectElement = document.querySelector("select");
 const dateInput = document.querySelector("#date");
+const confirmSenhaInput = document.querySelector("#confirm-senha");
+
+confirmSenhaInput.addEventListener("input", function() {
+    if (!confirmSenhaValid(senhaInput.value, confirmSenhaInput.value)) {
+        document.getElementById("confirm-senha-error").textContent = "As senhas não coincidem.";
+    } else {
+        document.getElementById("confirm-senha-error").textContent = "";
+    }
+});
 
 nomeInput.addEventListener("input", function() {
     if (!nomeValid(nomeInput.value)) {
@@ -44,7 +53,7 @@ dateInput.addEventListener("input", function() {
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    if (!nomeValid(nomeInput.value) || !emailValid(emailInput.value) || !senhaValid(senhaInput.value) || !dateValid(dateInput.value)) {
+    if (!nomeValid(nomeInput.value) || !emailValid(emailInput.value) || !senhaValid(senhaInput.value) || !dateValid(dateInput.value) || !confirmSenhaValid(senhaInput.value, confirmSenhaInput.value)) {
         return;
     }
 
@@ -70,6 +79,10 @@ form.addEventListener("submit", (event) => {
     };
     xhr.send();
 });
+
+function confirmSenhaValid(senha, confirmSenha) {
+    return senha === confirmSenha;
+}
 
 
 function nomeValid(nome) {
