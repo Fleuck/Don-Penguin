@@ -26,13 +26,83 @@ if(isset($_SESSION['userName'])) {
     <script src="https://cdn.datatables.net/v/bs5/dt-2.0.8/b-3.0.2/sl-2.0.3/datatables.min.js"></script>
     <title>Don Penguin</title>
 </head>
-    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-        <img src="../midia/penguin.jpg" alt="Bootstrap" width="30" height="24"><?php echo "Bem-vindo, $username!"; ?>
+
+<style>
+    .logo{
+    width: 4.4%;
+    max-width: 150px;
+    cursor: pointer;
+    }
+    
+    a{
+        text-decoration: none;
+    }
+    
+    a:-webkit-any-link {
+        color: #dbdbdb
+    }
+    
+    li{
+        margin-right: 3rem;
+        list-style: none;
+    }
+    
+    .org{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 5%;
+        z-index: 999;
+        transition: all 0.3s ease 0s;
+        background-color: #070707;
+    }
+    
+    .barra{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex; 
+    }
+    
+    .menu{
+        display: inline-block;
+        padding: padding 0px 20px;
+        flex-grow: 1; 
+        font-size: 1.2rem;
+        color: rgb(229, 229, 229);
+        transition: all 0.3s ease 0s;
+    }
+    
+    .menu:hover{ 
+        color: #ffffff;
+        font-size: 1.3rem;
+    }
+
+    .tudo{
+        margin-top: 5%;
+    }
+
+</style>
+<header>
+        <div class="org">
+            <img class="logo" src="../midia/penguin.jpg" alt="logo">
+            <nav>
+                <ul class="barra">
+                    <a class="menu" href="../filmesHub/homepage.php"><li>Homepage</li></a>
+                    <a class="menu" href="../TelaLogin/telalogin.html"><li>Sair</li></a>
+                    <?php echo "Bem-vindo, $username!"; ?>
         </a>
-    </div>
-    </nav>
+                </ul>
+            </nav>
+        </div> 
+    </header>
+
+    <div class="tudo">
+
     <div class="container text-center">
   <div class="row row-cols-2">
     <div class="col">
@@ -662,5 +732,6 @@ if(isset($_SESSION['userName'])) {
     </div>
 
     <script src="customTabelas.js"> </script>
+    </div>
 </body>
 </html>

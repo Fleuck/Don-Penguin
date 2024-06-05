@@ -12,7 +12,7 @@ const movies = [
     {image: "https://m.media-amazon.com/images/M/MV5BZGY3YjBlOWEtNDA3OC00ZTYwLThmNTktNDI1ODE2OTU2NjlkXkEyXkFqcGdeQXVyMjExNjgyMTc@._V1_.jpg" },
     {image: "https://m.media-amazon.com/images/M/MV5BZGY3YjBlOWEtNDA3OC00ZTYwLThmNTktNDI1ODE2OTU2NjlkXkEyXkFqcGdeQXVyMjExNjgyMTc@._V1_.jpg" },
     {image: "https://m.media-amazon.com/images/M/MV5BZGY3YjBlOWEtNDA3OC00ZTYwLThmNTktNDI1ODE2OTU2NjlkXkEyXkFqcGdeQXVyMjExNjgyMTc@._V1_.jpg" },
-    {image: "https://m.media-amazon.com/images/M/MV5BZGY3YjBlOWEtNDA3OC00ZTYwLThmNTktNDI1ODE2OTU2NjlkXkEyXkFqcGdeQXVyMjExNjgyMTc@._V1_.jpg" },
+    {image: "ttps://m.media-amazon.com/images/M/MV5BZGY3YjBlOWEtNDA3OC00ZTYwLThmNTktNDI1ODE2OTU2NjlkXkEyXkFqcGdeQXVyMjExNjgyMTc@._V1_.jpgh" },
 ];
 
 const movieContainer = document.getElementById("movie-container");

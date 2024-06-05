@@ -1,5 +1,5 @@
 <?php
-$servername = "127.0.0.1:3307";
+$servername = "localhost";
 $username = "root";
 $password = "";
 $database = "projetoDonPenguin";
@@ -37,7 +37,7 @@ if(empty($dados['capa'])){
     $cad_usuario->execute();
 
     if($cad_usuario->rowCount()){
-        $retorna = ['status' => false, 'msg' => "<div class='alert alert-success' role='alert'>Erro: Cadastrado com sucesso!</div>"];
+        $retorna = ['status' => false, 'msg' => "<div class='alert alert-success' role='alert'>Cadastrado com sucesso!</div>"];
     }else{
         $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Erro: Cadastrado não realizado!</div>"];
     }
