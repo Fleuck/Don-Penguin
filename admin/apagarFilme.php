@@ -1,7 +1,7 @@
 <?php
 
 // Incluir a conexao com o banco de dados
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username = "root";
 $password = "";
 $database = "projetoDonPenguin";

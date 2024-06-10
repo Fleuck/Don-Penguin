@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $genero_filme = $_POST["genero_filme"];
     $sinopse = $_POST["sinopse"];
 
-    $servername = "localhost";
+    $servername = "127.0.0.1";
     $username = "root";
     $password = "";
     $dbname = "projetoDonPenguin";
