@@ -12,8 +12,8 @@ $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
 if(empty($dados['capa'])){
     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Erro: Necessário preencher o campo Capa!</div>"];
-} elseif(empty($dados['nome'])){
-    $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Erro: Necessário preencher o campo Nome!</div>"];
+} elseif(empty($dados['titulo'])){
+    $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Erro: Necessário preencher o campo Titulo!</div>"];
 }elseif(empty($dados['nota'])){
     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Erro: Necessário preencher a nota!</div>"];
 }elseif(empty($dados['data'])){
@@ -25,10 +25,10 @@ if(empty($dados['capa'])){
 }elseif(empty($dados['sinopse'])){
     $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Erro: Necessário preencher a sinopse!</div>"];
 }else{
-    $query_usuario= "INSERT INTO filme (capa_filme, nome_filme, nota_filme, lancamento, genero_filme, url_filme, sinopse) VALUES (:capa, :nome, :nota, :data, :genero, :url, :sinopse);";
+    $query_usuario= "INSERT INTO filme (capa_filme, titulo, nota_filme, lancamento, genero_filme, url_filme, sinopse) VALUES (:capa, :nome, :nota, :data, :genero, :url, :sinopse);";
     $cad_usuario = $conn->prepare($query_usuario);
     $cad_usuario->bindParam(':capa', $dados['capa']);
-    $cad_usuario->bindParam(':nome', $dados['nome']);
+    $cad_usuario->bindParam(':titulo', $dados['titulo']);
     $cad_usuario->bindParam(':nota', $dados['nota']);
     $cad_usuario->bindParam(':data', $dados['data']);
     $cad_usuario->bindParam(':genero', $dados['genero']);

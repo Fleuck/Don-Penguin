@@ -1,6 +1,41 @@
 <?php
-require("../verificar_login.php");  
+require("../verificar_login.php");
+
+if (!isset($_GET['id'])) {
+    echo "ID do filme não fornecido!";
+    exit;
+}
+
+$film_id = $_GET['id'];
+
+$servername = "127.0.0.1";
+$username = "root";
+$password = "";
+$database = "projetoDonPenguin";
+
+$conn = new mysqli($servername, $username, $password, $database);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM filme WHERE id_filme = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $film_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$filme = $result->fetch_assoc();
+
+if (!$filme) {
+    echo "Filme não encontrado!";
+    exit;
+}
+
+$stmt->close();
+$conn->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,84 +52,85 @@ require("../verificar_login.php");
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
-  <body style="background-color: black;">
+<body style="background-color: black;">
     <div class="all" id="all">
-      <header>
-          <div class="org">
-              <img class="logo" src="../midia/penguin.jpg" alt="logo">
-              <nav>
-                  <ul class="barra">
-                      <a class="menu" href=""><li>Animacao</li></a>
-                      <a class="menu" href=""><li>Acao</li></a>
-                      <a class="menu" href=""><li>Comedia</li></a>
-                      <a class="menu" href=""><li>Classicos</li></a>
-                      <a class="menu" href=""><li>Romance</li></a>
-                      <a class="menu" href=""><li>Terror/Suspense</li></a>
-                      <a class="menu" href="../logout.php"><li>Sair</li></a>
-                      <div class="big">
-                          <i id="save" class="fa-solid fa-bookmark"></i>
-                          <i id="x" class="fa-solid fa-xmark"></i>
-                          <i id="search" class="fa-solid fa-magnifying-glass"></i> 
-                      </div>
-                  </ul>
-              </nav>
-              <div class = "toggle">
-                  <i class="fa-solid fa-bars"></i>
-              </div>
-              
-          </div>
-          <div class="dropdown_menu">   
-              <a class="menuzinho"  href="#"><li>Animacao</li></a>
-              <a class="menuzinho"  href="#"><li>Acao</li></a>
-              <a class="menuzinho"  href="#"><li>Comedia</li></a>
-              <a class="menuzinho" href="#"><li>Classicos</li></a>
-              <a class="menuzinho" href="#"><li>Romance</li></a>
-              <a class="menuzinho" href="#"><li>Terror/Suspense</li></a>
-              <a class="menuzinho" href="#"><li>Lista</li></a>
-              <div class="mini">
-                  <a href="#"><i id="save_mini" class="fa-solid fa-bookmark"></i></a>
-                  <a href="#"><i id="search_mini" class="fa-solid fa-magnifying-glass"></i></a>
-              </div>
-          </div>
-      </header> 
-      
-    <div class="tudo">
+        <header>
+            <div class="org">
+                <img class="logo" src="../midia/penguin.jpg" alt="logo">
+                <nav>
+                    <ul class="barra">
+                        <a class="menu" href=""><li>Animacao</li></a>
+                        <a class="menu" href=""><li>Acao</li></a>
+                        <a class="menu" href=""><li>Comedia</li></a>
+                        <a class="menu" href=""><li>Classicos</li></a>
+                        <a class="menu" href=""><li>Romance</li></a>
+                        <a class="menu" href=""><li>Terror/Suspense</li></a>
+                        <a class="menu" href="../logout.php"><li>Sair</li></a>
+                        <div class="big">
+                            <i id="save" class="fa-solid fa-bookmark"></i>
+                            <i id="x" class="fa-solid fa-xmark"></i>
+                            <i id="search" class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </ul>
+                </nav>
+                <div class="toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+            <div class="dropdown_menu">
+                <a class="menuzinho" href="#"><li>Animacao</li></a>
+                <a class="menuzinho" href="#"><li>Acao</li></a>
+                <a class="menuzinho" href="#"><li>Comedia</li></a>
+                <a class="menuzinho" href="#"><li>Classicos</li></a>
+                <a class="menuzinho" href="#"><li>Romance</li></a>
+                <a class="menuzinho" href="#"><li>Terror/Suspense</li></a>
+                <a class="menuzinho" href="#"><li>Lista</li></a>
+                <div class="mini">
+                    <a href="#"><i id="save_mini" class="fa-solid fa-bookmark"></i></a>
+                    <a href="#"><i id="search_mini" class="fa-solid fa-magnifying-glass"></i></a>
+                </div>
+            </div>
+        </header>
+
+            
+        <div class="tudo">
       <div class="video-background">
           <video autoplay muted loop id="video-background" poster="midias/poster_bladerunner.jpg">
               <source src="./midias/youtube_Eev16S__0g8_1920x1080_h264.mp4" type="video/mp4">
           </video>
       </div>
-      <div class="container text-center mt-4">
-          <div class="row">
-              <div class="col-md-6">
-                    <H1 style="color: white; text-align: left;">Blade Runner</H1>
-                    <br>
-                    <p id="paragrafo1" >Uma estranha criatura corre contra o tempo para fazer a mais importante e bela criação de sua vida.
-                    <h3><i class="fa fa-play fa-2x pull-left" aria-hidden="true" style="color:rgb(245, 242, 237)"></i></h3>
-                    <h3><i class="fa fa-heart-o fa-2x pull-left" aria-hidden="true" style="color:rgb(245, 242, 237)"></i></h3>
-                  </p>
-              </div>
-              <div class="col-md-6">
-                <a href="https://www.youtube.com/watch?v=YDXOioU_OKM&t=27s">
-                  <img id="poster" alt="Poster maker  " src="midias/makerPoster.jpg" class="img-fluid mt-n8">
-                </a>
-              </div>
-              <div class="c ol-md-6">
-                <p id="paragrafo2">Direção: Christopher Kezelos<br>
-                  Roteiristas: Christopher Kezelos, Ziad Jamal <br>
-              </div>
-              <div class="col-md-6">
-                <h5 id="badgesGeneros">
-                <span class="badge text-bg-dark">Animação</span>
-                <span class="badge text-bg-dark">Stop-Motion</span>
-                <span class="badge text-bg-dark">Fantasia</span>
-                </h5>
-              </div> 
-          </div>
-      </div>
-      </div>
+            <div class="container text-center mt-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <H1 id="titulo" style="color: white; text-align: left;"><?php echo $filme['nome_filme']; ?></H1>
+                        <br>
+                        <p id="paragrafo1"><?php echo $filme['sinopse']; ?></p>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="<?php echo $filme['url_filme']; ?>" target="_blank">
+                            <img id="poster" alt="Poster do Filme" src="<?php echo $filme['capa_filme']; ?>" class="img-fluid mt-n8">
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <p id="paragrafo2">Direção: Aeranovsky<br>
+                            Roteiristas: Darren george
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 id="badgesGeneros">
+                            <?php
+                            $generos = explode(',', $filme['genero_filme']);
+                            foreach ($generos as $genero) {
+                                echo '<span class="badge text-bg-dark">' . trim($genero) . '</span>';
+                            }
+                            ?>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("paragrafo1").classList.add("aparecer");
@@ -106,7 +142,5 @@ require("../verificar_login.php");
 
     <script src="script.js"></script>
     <script src="./minibar.js"></script>
-
-
 </body>
 </html>

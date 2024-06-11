@@ -1,14 +1,40 @@
 <?php
-require("../verificar_login.php");  
-?>
-<?php
-    if(isset($_SESSION['userName'])) {
-        $username = $_SESSION['userName'];
-    } else {
-        $username = "";
-    }
-?>
+require("../verificar_login.php");
 
+$servername = "127.0.0.1";
+$username = "root";
+$password = "";
+$database = "projetoDonPenguin";
+
+
+$conn = new mysqli($servername, $username, $password, $database);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT id_filme, capa_filme FROM filme";
+$result = $conn->query($sql);
+
+if(isset($_SESSION['userName'])) {
+    $username = $_SESSION['userName'];
+} else {
+    $username = "";
+}
+
+$filmes = array();
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $filmes[] = array(
+            'id' => $row['id_filme'],
+            'capa' => $row['capa_filme']
+        );
+    }
+} else {
+    echo "0 results";
+}
+$conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,15 +71,14 @@ require("../verificar_login.php");
                         </div>
                     </ul>
                 </nav>
-                <div class = "toggle">
+                <div class="toggle">
                     <i class="fa-solid fa-bars"></i>
                 </div>
-                
             </div>
             <div class="dropdown_menu">
-                <a class="menuzinho"  href="#"><li>Animacao</li></a>
-                <a class="menuzinho"  href="#"><li>Acao</li></a>
-                <a class="menuzinho"  href="#"><li>Comedia</li></a>
+                <a class="menuzinho" href="#"><li>Animacao</li></a>
+                <a class="menuzinho" href="#"><li>Acao</li></a>
+                <a class="menuzinho" href="#"><li>Comedia</li></a>
                 <a class="menuzinho" href="#"><li>Classicos</li></a>
                 <a class="menuzinho" href="#"><li>Romance</li></a>
                 <a class="menuzinho" href="#"><li>Terror/Suspense</li></a>
@@ -63,9 +88,9 @@ require("../verificar_login.php");
                     <a href="#"><i id="search_mini" class="fa-solid fa-magnifying-glass"></i></a>
                 </div>
             </div>
-        </header> 
+        </header>
 
-        <a href="../layoutTelaFilme/layout.php"><div class="container" id="movie-container"></div></a>
+        <div class="container" id="movie-container"></div>
         <div class="searchBar" id="searchBar">
             <form>
                 <input type="text" id="nome" name="nome" placeholder="O que vai assisitr ?"><br>
@@ -81,9 +106,24 @@ require("../verificar_login.php");
         <i id="xMini" class="fa-solid fa-xmark"></i>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        const movies = <?php echo json_encode($filmes); ?>;
+
+        const movieContainer = document.getElementById("movie-container");
+
+        movies.forEach(movie => {
+            const movieElement = document.createElement("div");
+            movieElement.classList.add("movie");
+            movieElement.innerHTML = `
+                <a href="../layoutTelaFilme/layout.php?id=${movie.id}">
+                    <img src="${movie.capa}" alt="Filme">
+                </a>
+            `;
+            movieContainer.appendChild(movieElement);
+        });
+    </script>
+
     <script src="./minibar.js"></script>
     <script src="./search.js"></script>
-
 </body>
 </html>

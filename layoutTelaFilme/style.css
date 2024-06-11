@@ -22,6 +22,10 @@
     opacity: 1;
 }
 
+#titulo.aparecer {
+    opacity: 1;
+}
+
 .video-background {
     position: fixed;
     top: 0;
