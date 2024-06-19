@@ -19,7 +19,7 @@ $sql = "INSERT INTO usuario (nome_usuario, email, senha, nascimento ,genero) VAL
 if ($conn->query($sql) === TRUE) {
     header("Location: ../TelaLogin/telalogin.html");
 } else {
-    echo "Error, tente novamente" . $conn->error;
+    echo "Error, tente novamente: " . $conn->error;
 }
 
 $conn->close();
