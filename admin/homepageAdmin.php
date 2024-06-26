@@ -28,26 +28,27 @@ if(isset($_SESSION['userName'])) {
 </head>
 
 <style>
-    .logo{
-    width: 4.4%;
-    max-width: 150px;
-    cursor: pointer;
+    .logo {
+        width: 60px; /* Tamanho fixo da logo */
+        height: auto;
+        cursor: pointer;
+        margin-right: 10px; /* Espaço entre a logo e o texto */
     }
-    
-    a{
+
+    a {
         text-decoration: none;
     }
-    
+
     a:-webkit-any-link {
-        color: #dbdbdb
+        color: #dbdbdb;
     }
-    
-    li{
+
+    li {
         margin-right: 3rem;
         list-style: none;
     }
-    
-    .org{
+
+    .org {
         position: fixed;
         top: 0;
         left: 0;
@@ -55,51 +56,63 @@ if(isset($_SESSION['userName'])) {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0px 5%;
+        padding: 4px 5%; /* Aumentar o padding para mais altura */
         z-index: 999;
         transition: all 0.3s ease 0s;
         background-color: #070707;
     }
-    
-    .barra{
+
+    .barra {
         list-style: none;
         margin: 0;
         padding: 0;
-        display: flex; 
+        display: flex;
     }
-    
-    .menu{
+
+    .menu {
         display: inline-block;
-        padding: padding 0px 20px;
-        flex-grow: 1; 
+        padding: 0px 20px;
+        flex-grow: 1;
         font-size: 1.2rem;
         color: rgb(229, 229, 229);
         transition: all 0.3s ease 0s;
     }
-    
-    .menu:hover{ 
+
+    .menu:hover { 
         color: #ffffff;
         font-size: 1.3rem;
     }
 
-    .tudo{
+    .tudo {
         margin-top: 5%;
     }
 
+    .logo-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .welcome-message {
+        font-size: 1.2rem;
+        color: #dbdbdb;
+    }
 </style>
+
+
 <header>
-        <div class="org">
+    <div class="org">
+        <div class="logo-container">
             <img class="logo" src="../midia/penguin.jpg" alt="logo">
-            <nav>
-                <ul class="barra">
-                    <a class="menu" href="../filmesHub/homepage.php"><li>Homepage</li></a>
-                    <a class="menu" href="../TelaLogin/telalogin.html"><li>Sair</li></a>
-                    <?php echo "Bem-vindo, $username!"; ?>
-        </a>
-                </ul>
-            </nav>
-        </div> 
-    </header>
+            <span class="welcome-message"><?php echo "Bem-vindo, $username!"; ?></span>
+        </div>
+        <nav>
+            <ul class="barra">
+                <li><a class="menu" href="../filmesHub/homepage.php">Homepage</a></li>
+                <li><a class="menu" href="../TelaLogin/telalogin.html">Sair</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
     <div class="tudo">
 
