@@ -2,7 +2,7 @@
 $servername = "127.0.0.1";
 $username = "root";
 $password = "";
-$database = "projetoDonPenguin";
+$database = "projetoDon_Penguin";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=" . $database, $username, $password);
@@ -29,7 +29,7 @@ if(empty($dados['nome'])){
     $cad_usuario->execute();
 
     if($cad_usuario->rowCount()){
-        $retorna = ['status' => false, 'msg' => "<div class='alert alert-success' role='alert'>Cadastrado com sucesso!</div>"];
+        $retorna = ['status' => true, 'msg' => "<div class='alert alert-success' role='alert'>Cadastrado com sucesso!</div>"];
     }else{
         $retorna = ['status' => false, 'msg' => "<div class='alert alert-danger' role='alert'>Erro: Não foi possível cadastrar!</div>"];
     }

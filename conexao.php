@@ -1,9 +1,9 @@
 <?php
 
-$servername = "127.0.0.1";
+$servername = "localhost";
 $username = "root";
 $password = "";
-$database = "projetoDonPenguin";
+$database = "projetoDon_Penguin";
 
 $conn = new mysqli($servername, $username, $password, $database);
 

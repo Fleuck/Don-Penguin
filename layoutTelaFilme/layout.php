@@ -11,7 +11,7 @@ $film_id = $_GET['id'];
 $servername = "127.0.0.1";
 $username = "root";
 $password = "";
-$database = "projetoDonPenguin";
+$database = "projetoDon_Penguin";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -57,6 +57,7 @@ $conn->close();
         <header>
             <div class="org">
                 <img class="logo" src="../midia/penguin.jpg" alt="logo">
+                <li style="color: white"><?php echo "Bem-vindo, $username!"; ?></li>
                 <nav>
                     <ul class="barra">
                         <a class="menu" href=""><li>Animacao</li></a>
