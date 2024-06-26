@@ -238,7 +238,7 @@ if(isset($_SESSION['userName'])) {
                         <div class="row mb-3">
                             <label for="email" class="col-sm-2 col-form-label">E-mail</label>
                             <div class="col-sm-10">
-                                <input type="text" name="email" class="form-control" id="email" placeholder="Idade">
+                                <input type="text" name="email" class="form-control" id="email" placeholder="E-mail de cadastro">
                             </div>
                         </div>
 
@@ -526,12 +526,6 @@ if(isset($_SESSION['userName'])) {
                     <span id="msgAlertErroCadAtor"></span>
                     <form method="POST" id="form-cad-ator" enctype="multipart/form-data">
 
-                        <div class="row mb-3">
-                            <label for="idFilme" class="col-sm-2 col-form-label">Capa</label>
-                            <div class="col-sm-10">
-                                <input type="number" name="idFilme" class="form-control" id="idFilme" placeholder="ID dos filmes que o ator participa">
-                            </div>
-                        </div>
 
                         <div class="row mb-3">
                             <label for="nome" class="col-sm-2 col-form-label">Nome</label>
@@ -596,13 +590,6 @@ if(isset($_SESSION['userName'])) {
                         <input type="hidden" name="editidAtor" id="editidAtor">
 
                         <div class="row mb-3">
-                            <label for="idFilmeEdit" class="col-sm-2 col-form-label">ID Filmes</label>
-                            <div class="col-sm-10">
-                                <input type="number" name="idFilmeEdit" class="form-control" id="idFilmeEdit" >
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
                             <label for="nomeEditAtor" class="col-sm-2 col-form-label">Nome</label>
                             <div class="col-sm-10">
                                 <input type="text" name="nomeEditAtor" class="form-control" id="nomeEditAtor" >
@@ -634,12 +621,6 @@ if(isset($_SESSION['userName'])) {
                     <span id="msgAlertErroCadDiretor"></span>
                     <form method="POST" id="form-cad-diretor" enctype="multipart/form-data">
 
-                        <div class="row mb-3">
-                            <label for="idFilme" class="col-sm-2 col-form-label">Capa</label>
-                            <div class="col-sm-10">
-                                <input type="number" name="idFilme" class="form-control" id="idFilme" placeholder="ID dos filmes que o diretor dirigiu">
-                            </div>
-                        </div>
 
                         <div class="row mb-3">
                             <label for="nome" class="col-sm-2 col-form-label">Nome</label>
@@ -702,13 +683,6 @@ if(isset($_SESSION['userName'])) {
                     <form method="POST" id="form-edit-diretor" enctype="multipart/form-data">
 
                         <input type="hidden" name="editidDiretor" id="editidDiretor">
-
-                        <div class="row mb-3">
-                            <label for="idFilmeEdit" class="col-sm-2 col-form-label">ID Filmes</label>
-                            <div class="col-sm-10">
-                                <input type="number" name="idFilmeEditDiretor" class="form-control" id="idFilmeEditDiretor" >
-                            </div>
-                        </div>
 
                         <div class="row mb-3">
                             <label for="nomeEditDiretor" class="col-sm-2 col-form-label">Nome</label>
