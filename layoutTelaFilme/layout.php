@@ -6,14 +6,20 @@ if (!isset($_GET['id'])) {
     exit;
 }
 
+if (isset($_SESSION['userName'])) {
+    $sessionUsername = $_SESSION['userName'];
+} else {
+    $sessionUsername = "";
+}
+
 $film_id = $_GET['id'];
 
-$servername = "127.0.0.1";
-$username = "root";
+$servername = "localhost";
+$dbUsername = "root";
 $password = "";
-$database = "projetoDon_Penguin";
+$database = "projetoDonPenguin";
 
-$conn = new mysqli($servername, $username, $password, $database);
+$conn = new mysqli($servername, $dbUsername, $password, $database);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -57,7 +63,7 @@ $conn->close();
         <header>
             <div class="org">
                 <img class="logo" src="../midia/penguin.jpg" alt="logo">
-                <li style="color: white"><?php echo "Bem-vindo, $username!"; ?></li>
+                <li style="color: white"><?php echo "Bem-vindo, $sessionUsername!"; ?></li>
                 <nav>
                     <ul class="barra">
                         <a class="menu" href=""><li>Animacao</li></a>
@@ -93,17 +99,16 @@ $conn->close();
             </div>
         </header>
 
-            
         <div class="tudo">
-      <div class="video-background">
-          <video autoplay muted loop id="video-background" poster="midias/poster_bladerunner.jpg">
-              <source src="./midias/youtube_Eev16S__0g8_1920x1080_h264.mp4" type="video/mp4">
-          </video>
-      </div>
+            <div class="video-background">
+                <video autoplay muted loop id="video-background" poster="midias/poster_bladerunner.jpg">
+                    <source src="./midias/youtube_Eev16S__0g8_1920x1080_h264.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="container text-center mt-4">
                 <div class="row">
                     <div class="col-md-6">
-                        <H1 id="titulo" style="color: white; text-align: left;"><?php echo $filme['nome_filme']; ?></H1>
+                        <h1 id="titulo" style="color: white; text-align: left;"><?php echo $filme['nome_filme']; ?></h1>
                         <br>
                         <p id="paragrafo1"><?php echo $filme['sinopse']; ?></p>
                     </div>
